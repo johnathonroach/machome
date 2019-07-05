@@ -11,12 +11,16 @@ Plugin 'rking/ag.vim'
 Plugin 'skwp/greplace.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'posva/vim-vue'
+"Plugin 'posva/vim-vue'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'mattn/emmet-vim'
+"Plugin 'mattn/emmet-vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'stephpy/vim-php-cs-fixer'
 Plugin 'msanders/snipmate.vim'
+"Plugin 'pangloss/vim-javascript'
+"Plugin 'mxw/vim-jsx'
+"Plugin 'bling/vim-bufferline'
+
 
 "can't get vdebug to see my python3
 Plugin 'vim-vdebug/vdebug'

@@ -5,7 +5,8 @@ so ~/.vim/plugins.vim
 syntax enable
 set backspace=indent,eol,start              "Make backspace behave like every other editor.
 let mapleader = ',' 						"The default is \, but a comma is much better.
-"set number
+set number
+set relativenumber
 
 set noerrorbells visualbell t_vb=           "No damn error bells!
 "set spell                                   "turn on spellcheck
@@ -17,45 +18,34 @@ autocmd FileType text setlocal spell
 let g:gitgutter_override_sign_column_highlight=1
 colorscheme gruvbox
 set background=dark
-hi Normal guibg=background ctermbg=236
+hi Normal guibg=NONE ctermbg=NONE
 hi! link FoldColumn Normal
 set foldcolumn=3
 
-hi LineNr guibg=NONE
+hi LineNr guibg=NONE guibg=NONE ctermfg=243 ctermbg=NONE
+hi CursorLineNR cterm=bold guibg=NONE ctermbg=NONE
 hi SignColumn ctermfg=none ctermbg=none
 highlight clear SignColumn
 " let g:gruvbox_invert_signs=0
-" hi CursorLine ctermbg=237 " dark
 hi CursorLine ctermbg=NONE
 
-" highlight VertSplit ctermbg=237
-" highlight VertSplit ctermfg=237
-highlight VertSplit ctermbg=NONE
-highlight VertSplit ctermfg=237
+
+highlight VertSplit ctermbg=235
+highlight VertSplit ctermfg=235
 :set fillchars+=vert:│
 
-highlight EndOfBuffer ctermbg=NONE ctermfg=237 guibg=NONE guifg=NONE
+highlight EndOfBuffer ctermbg=none ctermfg=237 guibg=NONE guifg=NONE
 
-"-------- Nerd Tree ---------------"
-let g:NERDTreeWinSize=30
+let g:NERTreeWinSize=60
 
-"-------- Nerd Commenter ---------------"
-let g:NERDSpaceDelims = 1
-let g:NERDCompactSexyComs = 1
-let g:NERDDefaultAlign = 'left'
-let g:NERDAltDelims_java = 1
-let g:NERDCustomDelimiters = { 'c': { 'left': '/**', 'right': '*/' } }
-let g:NERDCommentEmptyLines = 1
-let g:NERDTrimTrailingWhitespace = 1
-let g:NERDToggleCheckAllLines = 1
 
 "Airline
-let g:airline_theme='minimalist' " good for dark
-" let g:airline_theme='molokai'
+"let g:airline_theme='minimalist' " good for dark
+let g:airline_theme='molokai'
 " let g:airline_theme='solarized'
 " let g:airline_theme='term'
 " let g:airline_theme='luna'
-let g:airline_theme='zenburn'
+" let g:airline_theme='zenburn'
 " let g:airline_theme='tomorrow'
 " let g:airline_theme='papercolor'
 " let g:airline_theme='wombat'
@@ -182,7 +172,6 @@ nmap <c-l> <C-W><C-L>
 
 "Make it easy to edit the Vimrc file.
 nmap <Leader>ev :tabedit $MYVIMRC<cr>
-nmap <Leader>ep :tabedit ~/.vim/plugins.vim<cr>
 
 "Add simple highlight removal.
 nmap <Leader><space> :nohlsearch<cr>
@@ -198,9 +187,8 @@ noremap <Leader>P "+p
 
 "CtrlP
 nmap <D-p> :CtrlP<cr>
-" These don't seem to work :|
-" nmap <D-r> :CtrlPBufTag<cr>
-" nmap <D-e> :CtrlPMRUFiles<cr>
+nmap <D-r> :CtrlPBufTag<cr>
+nmap <D-e> :CtrlPMRUFiles<cr>
 
 "Greplace.vim
 set grepprg=ag                                                  "Use ag for search
@@ -216,6 +204,7 @@ let g:ctrlp_match_window = 'top,order:ttb,min:1,max:20,results:20'
 "--------NERDTree-Customizations---------"
 
 let NERDTreeHijackNetrw = 0
+let NERDTreeWinSize=45
 
 "--RANDOM--"
 highlight link htmlLink text

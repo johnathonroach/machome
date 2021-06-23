@@ -27,7 +27,7 @@ hi CursorLineNR cterm=bold guibg=NONE ctermbg=NONE
 hi SignColumn ctermfg=none ctermbg=none
 highlight clear SignColumn
 " let g:gruvbox_invert_signs=0
-hi CursorLine ctermbg=NONE
+hi CursorLine ctermfg=NONE ctermbg=NONE
 
 
 highlight VertSplit ctermbg=235
@@ -38,17 +38,20 @@ highlight EndOfBuffer ctermbg=none ctermfg=237 guibg=NONE guifg=NONE
 
 let g:NERTreeWinSize=60
 
+"Code Folding
+":set foldmethod=indent
+
 
 "Airline
-"let g:airline_theme='minimalist' " good for dark
-let g:airline_theme='molokai'
+" let g:airline_theme='minimalist' " good for dark
+" let g:airline_theme='molokai'
 " let g:airline_theme='solarized'
 " let g:airline_theme='term'
 " let g:airline_theme='luna'
 " let g:airline_theme='zenburn'
 " let g:airline_theme='tomorrow'
 " let g:airline_theme='papercolor'
-" let g:airline_theme='wombat'
+let g:airline_theme='wombat'
 
 
 let g:airline_powerline_fonts = 1
@@ -140,9 +143,9 @@ set cursorline
 
 filetype plugin indent on
 " show existing tab with 4 spaces width
-set tabstop=4
+set tabstop=2
 " when indenting with '>', use 4 spaces width
-set shiftwidth=4
+set shiftwidth=2
 " On pressing tab, insert 4 spaces
 set expandtab
 
@@ -186,9 +189,9 @@ noremap <Leader>Y "+y
 noremap <Leader>P "+p
 
 "CtrlP
-nmap <D-p> :CtrlP<cr>
-nmap <D-r> :CtrlPBufTag<cr>
-nmap <D-e> :CtrlPMRUFiles<cr>
+nmap <c-P> :CtrlP<cr>
+nmap <c-R> :CtrlPBufTag<cr>
+nmap <c-E> :CtrlPMRUFiles<cr>
 
 "Greplace.vim
 set grepprg=ag                                                  "Use ag for search
@@ -249,8 +252,11 @@ nmap <Leader>s :Breakpoint<cr>
 
 "-------------Auto-Commands--------------"
 
-augroup autosourcing
+augroup autosourcing                                                "This lets us group auto-command and kill them on source
+    " Kill existing auto commands
 	autocmd!
-	autocmd BufWritePost .vimrc source % "Automatically source the Vimrc file on save.
-    autocmd BufWritePost *.php silent! call PhpCsFixerFixFile() "Run php-cs-fixer on save
+
+	autocmd BufWritePost .vimrc source %                            "Automatically source the Vimrc file on save.
+    autocmd BufWritePost *.php silent! call PhpCsFixerFixFile()     "Run php-cs-fixer on save
 augroup END
+

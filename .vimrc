@@ -27,7 +27,7 @@ hi CursorLineNR cterm=bold guibg=NONE ctermbg=NONE
 hi SignColumn ctermfg=none ctermbg=none
 highlight clear SignColumn
 " let g:gruvbox_invert_signs=0
-hi CursorLine ctermfg=NONE ctermbg=NONE
+hi CursorLine cterm=NONE ctermfg=NONE ctermbg=NONE
 
 
 highlight VertSplit ctermbg=235
